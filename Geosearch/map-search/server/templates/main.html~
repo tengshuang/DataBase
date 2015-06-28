@@ -1,0 +1,116 @@
+<html>
+	<head>
+		<meta http-equiv = "Content-Type" content = "text/html;charset=gb2312">
+		<title>Map Search</title>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false"></script>
+	</head>
+  <body bgcolor=#C2C0CC>
+    <h5 style="position:absolute;top:92%;">
+      <font color=#B2B0BC>Oppy @14.6.10</font>
+    </h5>
+    <div id="show" style="position:absolute;left:1%;width:20%;height:90%">
+      <br>
+      <form action="">
+	<label>Please input the nearest num:</label>
+        <input type="text" id="num">
+	<label>Please input the key word:</label>
+        <input type="text" id="text" onkeyup="showSearch()">
+      </form>
+      <div id="result"></div>
+    </div>
+    <div id="map-canvas"
+      style="position:absolute;left:22%;width:77%;height:97%"></div>
+  </body>
+</html>
+
+<script>
+var map;
+var z_marker;
+var markers = [];
+
+function initialize() {
+  // at google, Singapore
+  var init_latlng = new google.maps.LatLng(1.352083, 103.81983600000001);
+
+  var mapOptions = {
+    zoom: 14,
+    center: init_latlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+
+  z_marker = new google.maps.Marker({
+    position: init_latlng,
+    map: map,
+    draggable: true,
+    title: "I am here!",
+    animation: google.maps.Animation.DROP,
+    icon: "http://maps.google.com/mapfiles/kml/paddle/Z.png",
+  });
+
+  google.maps.event.addListener(z_marker, 'click', function() {
+    map.setCenter(z_marker.getPosition());
+  });
+
+  document.getElementById('num').value = "5";
+  document.getElementById('text').value = "";
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+function deleteMarkers() {
+  for (var i = 0; i < markers.length; ++i) {
+    markers[i].setMap(null);
+  }
+  markers = [];
+}
+
+function addMarker(lat, lng) {
+  markers.push(new google.maps.Marker({
+        position: new google.maps.LatLng(lat, lng),
+        map: map
+  }));
+}
+
+function showSearch() {
+  var num = parseInt(document.getElementById('num').value);
+  if (isNaN(num)) {
+    num = 5;
+  }
+  document.getElementById('num').value = num;
+  var str = document.getElementById('text').value;
+
+  var xmlhttp;
+  if (str.length == 0) {
+    document.getElementById("result").innerHTML="";
+    return;
+  }
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp = new XMLHttpRequest();
+  } else {
+    // code for IE6, IE5
+    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      // order: name, lat, lng, addr
+      var pois = eval("("+xmlhttp.responseText+")");
+
+      deleteMarkers();
+      var show_text = "";
+      for (var i = 0; i < pois.length; ++i) {
+        show_text += "<b><font color=#02007C>" + pois[i][0] +
+          "</font></b><br><font color=#02508C>" + pois[i][3] + "</font><br>";
+        addMarker(pois[i][1], pois[i][2]);
+      }
+      document.getElementById("result").innerHTML = show_text;
+    }
+  }
+  var latlng = z_marker.getPosition();
+  xmlhttp.open("GET", "/search?q="+str+"&num="+num+
+      "&lat="+latlng.lat()+"&lng="+latlng.lng(), true);
+  xmlhttp.send();
+}
+</script>

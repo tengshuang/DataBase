@@ -1,0 +1,80 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AddChild	trie.cpp	/^bool Trie::TrieNode::AddChild(unsigned c, int child_ref) {$/;"	f	class:map_search::db::Trie::TrieNode
+AddDataRef	trie.cpp	/^void Trie::TrieNode::AddDataRef(unsigned ref) {$/;"	f	class:map_search::db::Trie::TrieNode
+Clear	trie.cpp	/^void Trie::Clear() {$/;"	f	class:map_search::db::Trie
+GetChild	trie.cpp	/^int Trie::TrieNode::GetChild(unsigned c) const {$/;"	f	class:map_search::db::Trie::TrieNode
+GetDataRefs	trie.cpp	/^const std::vector<unsigned>* Trie::TrieNode::GetDataRefs() const {$/;"	f	class:map_search::db::Trie::TrieNode
+GetKeywords	kit.cpp	/^std::vector<std::string> GetKeywords(const std::string& input) {$/;"	f	namespace:map_search::db
+GetRefs	trie.cpp	/^const std::vector<unsigned>* Trie::GetRefs(const std::string& str) {$/;"	f	class:map_search::db::Trie
+IntersectRefs	kit.cpp	/^std::vector<unsigned> IntersectRefs(const std::vector<unsigned>& refs_a,$/;"	f	namespace:map_search::db
+MAP_SEARCH_DB_KIT_H_	kit.h	2;"	d
+MAP_SEARCH_DB_KNN_H_	knn.h	2;"	d
+MAP_SEARCH_DB_POI_H_	poi.h	2;"	d
+MAP_SEARCH_DB_TRIE_H_	trie.h	2;"	d
+MapChar	trie.cpp	/^int MapChar(char c) {$/;"	f	namespace:map_search::db
+Naive	knn.cpp	/^std::vector<POI> Naive(double lat, double lng,$/;"	f	namespace:map_search::db::knn
+POI	poi.cpp	/^POI::POI(std::string name, double lat, double lng, std::string addr)$/;"	f	class:map_search::db::POI
+POI	poi.h	/^class POI {$/;"	c	namespace:map_search::db
+POIComparison	knn.cpp	/^  POIComparison(double lat, double lng)$/;"	f	class:map_search::db::knn::POIComparison
+POIComparison	knn.cpp	/^class POIComparison {$/;"	c	namespace:map_search::db::knn	file:
+Push	trie.cpp	/^bool Trie::Push(const std::string& str, unsigned ref) {$/;"	f	class:map_search::db::Trie
+ReadJson	kit.cpp	/^bool ReadJson(char* file_name) {$/;"	f	namespace:map_search::db
+Search	kit.cpp	/^std::vector<POI> Search(double lat, double lng, const std::string& input,$/;"	f	namespace:map_search::db
+Size	trie.cpp	/^unsigned Trie::Size() {$/;"	f	class:map_search::db::Trie
+Trie	trie.cpp	/^Trie::Trie() {$/;"	f	class:map_search::db::Trie
+Trie	trie.h	/^class Trie {$/;"	c	namespace:map_search::db
+TrieNode	trie.cpp	/^Trie::TrieNode::TrieNode() {$/;"	f	class:map_search::db::Trie::TrieNode
+TrieNode	trie.h	/^  class TrieNode {$/;"	c	class:map_search::db::Trie
+abs	knn.cpp	/^double abs(double x) {$/;"	f	namespace:map_search::db::knn
+addr_	poi.h	/^  std::string addr_;$/;"	m	class:map_search::db::POI
+cached_input	kit.cpp	/^std::string cached_input;$/;"	m	namespace:map_search::db	file:
+cached_keywords	kit.cpp	/^std::vector<std::string> cached_keywords;$/;"	m	namespace:map_search::db	file:
+cached_lat	kit.cpp	/^double cached_lat;$/;"	m	namespace:map_search::db	file:
+cached_lng	kit.cpp	/^double cached_lng;$/;"	m	namespace:map_search::db	file:
+cached_num	kit.cpp	/^unsigned cached_num;$/;"	m	namespace:map_search::db	file:
+cached_pois	kit.cpp	/^std::vector<POI> cached_pois;$/;"	m	namespace:map_search::db	file:
+cached_refss	kit.cpp	/^std::vector<std::vector<unsigned> > cached_refss;$/;"	m	namespace:map_search::db	file:
+child_	trie.h	/^    int child_[kChildNum];$/;"	m	class:map_search::db::Trie::TrieNode
+data_refs_	trie.h	/^    std::vector<unsigned> data_refs_;$/;"	m	class:map_search::db::Trie::TrieNode
+db	kit.cpp	/^namespace db {$/;"	n	namespace:map_search	file:
+db	kit.h	/^namespace db {$/;"	n	namespace:map_search
+db	knn.cpp	/^namespace db {$/;"	n	namespace:map_search	file:
+db	knn.h	/^namespace db {$/;"	n	namespace:map_search
+db	poi.cpp	/^namespace db {$/;"	n	namespace:map_search	file:
+db	poi.h	/^namespace db {$/;"	n	namespace:map_search
+db	trie.cpp	/^namespace db {$/;"	n	namespace:map_search	file:
+db	trie.h	/^namespace db {$/;"	n	namespace:map_search
+dist	knn.cpp	/^double dist(double x1, double y1, double x2, double y2) {$/;"	f	namespace:map_search::db::knn
+kChildNum	trie.h	/^const unsigned kChildNum = 37;$/;"	m	namespace:map_search::db
+kInvalidChar	trie.h	/^const int kInvalidChar = -1;$/;"	m	namespace:map_search::db
+kInvalidNodeRef	trie.h	/^const int kInvalidNodeRef = -1;$/;"	m	namespace:map_search::db
+kTrieNodesCapacity	trie.h	/^const int kTrieNodesCapacity = 21000;$/;"	m	namespace:map_search::db
+knn	knn.cpp	/^namespace knn {$/;"	n	namespace:map_search::db	file:
+knn	knn.h	/^namespace knn {$/;"	n	namespace:map_search::db
+lat_	knn.cpp	/^  double lat_;$/;"	m	class:map_search::db::knn::POIComparison	file:
+lat_	poi.h	/^  double lat_;$/;"	m	class:map_search::db::POI
+lng_	knn.cpp	/^  double lng_;$/;"	m	class:map_search::db::knn::POIComparison	file:
+lng_	poi.h	/^  double lng_;$/;"	m	class:map_search::db::POI
+map_search	kit.cpp	/^namespace map_search {$/;"	n	file:
+map_search	kit.h	/^namespace map_search {$/;"	n
+map_search	knn.cpp	/^namespace map_search {$/;"	n	file:
+map_search	knn.h	/^namespace map_search {$/;"	n
+map_search	poi.cpp	/^namespace map_search {$/;"	n	file:
+map_search	poi.h	/^namespace map_search {$/;"	n
+map_search	trie.cpp	/^namespace map_search {$/;"	n	file:
+map_search	trie.h	/^namespace map_search {$/;"	n
+name_	poi.h	/^  std::string name_;$/;"	m	class:map_search::db::POI
+nodes_	trie.h	/^  std::vector<TrieNode> nodes_;$/;"	m	class:map_search::db::Trie
+operator ()	knn.cpp	/^  bool operator() (const POI& lhs, const POI& rhs) const {$/;"	f	class:map_search::db::knn::POIComparison
+poi_compare	kit.cpp	/^int poi_compare(const POI& a, const POI& b) {$/;"	f	namespace:map_search::db
+poi_list	kit.cpp	/^std::vector<POI> poi_list;$/;"	m	namespace:map_search::db	file:
+sqr	knn.cpp	/^double sqr(double x) {$/;"	f	namespace:map_search::db::knn
+trie	kit.cpp	/^Trie trie;$/;"	m	namespace:map_search::db	file:
+~POI	poi.cpp	/^POI::~POI() {}$/;"	f	class:map_search::db::POI
+~Trie	trie.cpp	/^Trie::~Trie() {}$/;"	f	class:map_search::db::Trie
+~TrieNode	trie.cpp	/^Trie::TrieNode::~TrieNode() {}$/;"	f	class:map_search::db::Trie::TrieNode
